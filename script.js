@@ -24,7 +24,11 @@ function updateClock() {
         greetingText = "Developer Mode Active (Night)";
     }
     greetingElement.textContent = greetingText;
-
+    
+    // 2. 12-Hour Format Conversion & AM/PM Logic
+    let period = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
 
     // add lending zero
     hours = hours < 10 ? '0' + hours : hours;
